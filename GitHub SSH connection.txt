@@ -1,0 +1,43 @@
+
+Step 1 :- Check if you've existing ssh keys. 
+    $ ls ~/.ssh
+If you already have existing key then you need to create a new set of public and private keys.
+    $ ssh-key -t ed25519 -C "youremail@email.com"    
+    Please use your correct email. Command should show you the message like this "Generating public/private ed25519 key pair.
+Enter file in which to save the key (C:\Users\UserName/.ssh/id_ed25519):" 
+
+Enter here your keys file name like : id_rsa_github2
+Next prompt will be for passphrase, please enter a passphrase. And it should show you the something like :- 
+The key's randomart image is:
++--[ED25519 256]--+
+|        .  .==&=+|
+|       .    o+o=.|
+|      o      oo  |
+|     o .S . o E  |
+|    o   .. . =   |
+|   .     o  . .  |
+|        . .  o   |
+|           ..    |
++----[SHA256]-----+
+
+Step 2:- If you use "ls ~/.ssh" command new two files with the names id_rsa_github2 should be there. Open "id_rsa_github2.pub" file and copy the ssh key.
+
+Step 3:- Open your GitHub account and go to settings -> SSH-Keys and click on New SSH Key. Paste the copied ssh key in step 2 here and save.
+
+Step 4:- Run following command on your terminal.
+    $ ssh-add ~/.ssh/id_rsa_github2
+
+Step 5:- Test your connection to GitHub with following command.
+    $ ssh -T git@github.com
+
+It might result something like this :- 
+Warning: Permanently added the ECDSA host key for IP address '140.82.121.4' to the list of known hosts.
+Enter passphrase for key 'C:\Users\UserName/.ssh/id_rsa_github':
+Hi User! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+Step 6:- Clone your repository again with the ssh git clone path.
+    $ git clone https://github.com/User/example.git
+
+
+
