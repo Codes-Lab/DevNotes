@@ -1,0 +1,6 @@
+Changes in java8 vs. Java11
+Handling insertion order in stream with parallel 
+Named queries and other types of queries possible in hibernate
+When to use which query type
+Hibernate unidirectional vs bidirectional mapping
+Microservices communication among them
